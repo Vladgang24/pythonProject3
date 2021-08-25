@@ -1,0 +1,105 @@
+{% extends 'Base.html' %}
+{% block title %}
+    Workout pig!
+{% endblock %}
+{% block content %}
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Recommended time</th>
+                <th scope="col">Complete</th>
+                <th scope="col">Diet</th>
+                <th scope="col">Recommendations to diet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for train in trains %}
+            {% include 'includes/train_modal.html' %}
+                <tr>
+                    <td>{{train.id}}</td>
+                    <td>{{train.name}}</td>
+                    <td>{{train.time}}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ train.id }}">More Info</button>
+                    </td>
+                    <td>{{train.di}}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfoo-{{ train.id }}">More Info</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
+<div class="position-relative overflow-hidden text-center bg-dark" style="color:white">
+    <div class="col-md-5 p-lg-5 mx-auto">
+        <h1 class="display-4 font-weight-normal">The pitfalls and cons of express diets</h1>
+    </div>
+    <div class="container">
+        <ol class="rectangle">
+          <li><a href="{{ url_for('advice_page') }}">Weight is lost mainly through water and returns quickly after completing the diet.</a></li>
+          <li><a href="{{ url_for('advice_page') }}">Only very fat people lose weight seriously, but not those who weigh 65–70 kg.</a></li>
+          <li><a href="{{ url_for('advice_page') }}">It is after express diets, including protein diets, that the skin sags most of all.</a></li>
+          <li><a href="{{ url_for('advice_page') }}">They affect the gastrointestinal tract, liver and kidneys.</a></li>
+          <li><a href="{{ url_for('advice_page') }}">Because of them, the metabolism slows down, it becomes more difficult to lose weight in the future.</a></li>
+        </ol>
+        <a class="btn btn-primary" href="https://www.mcdonalds.com/ua/uk-ua.html">If you are not ready, bye)</a>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</div>
+<style>
+    .btn btn-outline btn-info{
+    text-align: center;
+    }
+    .rectangle {
+    counter-reset: li;
+    list-style: none;
+    font: 14px "Trebuchet MS", "Lucida Sans";
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    }
+    .rectangle a {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    margin: .5em 0 .5em 2.5em;
+    background: #D3D4DA;
+    color: #444;
+    text-decoration: none;
+    transition: all .3s ease-out;
+    }
+    .rectangle a:hover {background: #DCDDE1;}
+    .rectangle a:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #9097A2;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+    }
+    .rectangle a:after {
+    position: absolute;
+    content: "";
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;
+    }
+    .rectangle a:hover:after {
+    left: -.5em;
+    border-left-color: #9097A2;
+    }
+</style>
+{% endblock %}

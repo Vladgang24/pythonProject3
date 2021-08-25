@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+   Shop Page
+{% endblock %}
+{% block content %}
+
+
+<div class="row" style="margin-top:20px; margin-left:20px">
+   <div class="col-8">
+       <h2>Available items on the Market</h2>
+       <h5>Click on one of the items to start buying</h5>
+       <br>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Complete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for shop in shops %}
+            {% include 'includes/shops_modal.html' %}
+                <tr>
+                    <td>{{shop.id}}</td>
+                    <td>{{shop.name}}</td>
+                    <td>{{shop.price}}$</td>
+                    <td>
+                        <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ shop.id }}">More Info</button>
+                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#Modal-PurchaseConfirm-{{ shop.id }}">Purchase this Item</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   </div>
+   <div class="col-4">
+        <h2>Owned Items</h2>
+        <h5>Click on sell item to put an item back on the Market</h5>
+        <br>
+        <div class="row">
+            {% for owned_shop in owned_shops  %}
+            {% include 'includes/owned_shop_modals.html' %}
+            <div class="col-md-6">
+                <div style="margin-bottom: 5px" class="card text-center bg-dark">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ owned_shop.name }}</h5>
+                          <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
+                                  data-toggle="modal" data-target="#Modal-SellingConfirm-{{ owned_shop.id }}">
+                              Sell this Item
+                          </button>
+                          <p class="card-text"><strong>
+                              This item costs {{ owned_shop.price }}$
+                          </strong></p>
+                      </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+   </div>
+</div>
+{% endblock %}

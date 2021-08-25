@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Advice
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+         <section class="one">
+             <div class="main">
+                 <div class="lucky">
+                     <h1 class="lucky-title">Your ninja journey begins with proper nutrition</h1>
+                 </div>
+                 <div class="box">
+                      <img class="boxy" src="static/images/step_one.jpg" alt="ПИЗДА СОРЯН">
+                 </div>
+             </div>
+         </section>
+         <section class="two">
+             <div class="less">
+                 <div class="nolucky">
+                     <h1 class="nolucky-title"><font color="white">One of the most important is calmness and patience</font></h1>
+                 </div>
+                 <div class="rock">
+                      <img class="wow" src="static/images/step_two.jpg" alt="ПИЗДА СОРЯН">
+                 </div>
+             </div>
+         </section>
+         <section class="third">
+             <div class="md">
+                 <div class="alina">
+                     <h1 class="alina-title"><font size="13" color="white">Find a mentor</font></h1>
+                 </div>
+                 <div class="wok">
+                      <img class="wew" src="static/images/step_three.jpg" alt="ПИЗДА СОРЯН">
+                 </div>
+             </div>
+         </section>
+        <section class="four">
+             <div class="mda">
+                 <div class="karina">
+                     <h1 class="karina-title"><font size="13" color="white">Always be attentive</font></h1>
+                 </div>
+                 <div class="fire">
+                      <img class="fours" src="static/images/step_four.jpg" alt="ПИЗДА СОРЯН">
+                 </div>
+             </div>
+         </section>
+        <section class="five">
+             <div class="mk">
+                 <div class="vika">
+                     <h1 class="vika-title"><font size="13" color="white">Reach your goals</font></h1>
+                 </div>
+                 <div class="vive">
+                      <img class="fives" src="static/images/step_five.jpg" alt="ПИЗДА СОРЯН">
+                 </div>
+             </div>
+         </section>
+     </div>
+</body>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+        }
+    section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+    .container {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: 100vh;
+     }
+    .one {
+        background-color: #212121;
+    }
+    .two {
+        background-color: #212121;
+    }
+    .third {
+        background-color: #212121;
+    }
+     .four {
+        background-color: #212121;
+    }
+    .five {
+        background-color: #212121;
+    }
+    * {box-sizing: border-box;}
+    .box {
+      width: 600px;
+      margin: 30px auto 0;
+    }
+    .boxy {
+    width: 600px; height: 600px
+    }
+    .lucky-title {
+    margin: 0px;
+    font-family: "Arial";
+    }
+    * {box-sizing: border-box;}
+    .rock {
+      width: 600px;
+      margin: 30px auto 0;
+    }
+    .wow {
+    width: 600px; height: 600px
+    }
+    .nolucky-title {
+     text-align: center;
+    }
+    * {box-sizing: border-box;}
+    .wok {
+      width: 600px;
+      margin: 30px auto 0;
+    }
+    .wew {
+    width: 600px; height: 600px
+    }
+    .alina-title {
+    text-align: center;
+    }
+    * {box-sizing: border-box;}
+    .fire {
+      width: 600px;
+      margin: 30px auto 0;
+    }
+    .fours {
+    width: 600px; height: 600px
+    }
+    .karina-title {
+    text-align: center;
+    }
+    * {box-sizing: border-box;}
+    .vive {
+      width: 600px;
+      margin: 30px auto 0;
+    }
+    .fives {
+    width: 600px; height: 600px
+    }
+    .vika-title {
+    text-align: center;
+    }
+</style>
+{% endblock %}
